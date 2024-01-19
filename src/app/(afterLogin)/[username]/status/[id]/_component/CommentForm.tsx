@@ -1,41 +1,32 @@
-"use client"
+"use client";
 
-import {ChangeEventHandler, FormEventHandler, useRef, useState} from "react";
-import style from './postForm.module.css';
+import {useRef, useState} from "react";
+import style from './commentForm.module.css';
 
-export default function PostForm() {
-  const imageRef = useRef<HTMLInputElement>(null);
+export default function CommentForm() {
   const [content, setContent] = useState('');
+  const imageRef = useRef<HTMLInputElement>(null);
+  const onClickButton = () => {}
+  const onSubmit = () => {}
+  const onChange = () => {}
   const me = {
     id: 'zerohch0',
     image: '/5Udwvqim.jpg'
   };
 
-  const onChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
-    setContent(e.target.value);
-  }
-
-  const onSubmit: FormEventHandler = (e) => {
-    e.preventDefault();
-  }
-
-  const onClickButton = () => {
-    imageRef.current?.click();
-  }
-
   return (
     <form className={style.postForm} onSubmit={onSubmit}>
       <div className={style.postUserSection}>
         <div className={style.postUserImage}>
-          <img src={me.image} alt={me.id} />
+          <img src={me.image} alt={me.id}/>
         </div>
       </div>
       <div className={style.postInputSection}>
-        <textarea value={content} onChange={onChange} placeholder="무슨 일이 일어나고 있나요?"/>
+        <textarea value={content} onChange={onChange} placeholder="답글 게시하기"/>
         <div className={style.postButtonSection}>
           <div className={style.footerButtons}>
             <div className={style.footerButtonLeft}>
-              <input type="file" name="imageFiles" multiple hidden ref={imageRef} />
+              <input type="file" name="imageFiles" multiple hidden ref={imageRef}/>
               <button className={style.uploadButton} type="button" onClick={onClickButton}>
                 <svg width={24} viewBox="0 0 24 24" aria-hidden="true">
                   <g>
@@ -45,10 +36,10 @@ export default function PostForm() {
                 </svg>
               </button>
             </div>
-            <button className={style.actionButton} disabled={!content}>게시하기</button>
+            <button className={style.actionButton} disabled={!content}>답글</button>
           </div>
         </div>
       </div>
     </form>
-  )
+  );
 }
