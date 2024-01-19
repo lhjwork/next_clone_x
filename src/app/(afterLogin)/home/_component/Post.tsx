@@ -1,12 +1,12 @@
 import style from "./post.module.css";
 import Link from "next/link";
 import dayjs from "dayjs";
-// import relativeTime from "dayjs/plugin/relativeTime";
+import relativeTime from "dayjs/plugin/relativeTime";
 import "dayjs/locale/ko";
 // import ActionButtons from "@/app/(afterLogin)/_component/ActionButtons";
 
 dayjs.locale("ko");
-// dayjs.extend(relativeTime);
+dayjs.extend(relativeTime);
 
 export default function Post() {
   const target = {
@@ -37,7 +37,7 @@ export default function Post() {
               &nbsp; · &nbsp;
             </Link>
             <span className={style.postDate}>
-              {/* {dayjs(target.createdAt).fromNow(true)} */}
+              {dayjs(target.createdAt).fromNow(true)}
             </span>
           </div>
           <div>{target.content}</div>

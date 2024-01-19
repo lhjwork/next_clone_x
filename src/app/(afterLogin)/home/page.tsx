@@ -9,6 +9,7 @@ export default function Home(): JSX.Element {
     <main className={style.main}>
       <TabProvider>
         <Tab />
+        {/* form은 웬만하면 client component라고 생각하는게 좋다. */}
         <PostForm />
         <Post />
       </TabProvider>
