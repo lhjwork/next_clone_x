@@ -1,8 +1,17 @@
-import Image from "next/image";
-import zLogo from "../../../../public/zlogo.png";
-import Link from "next/link";
-import styles from "@/app/page.module.css";
+import Post from "./_component/Post";
+import PostForm from "./_component/PostForm";
+import Tab from "./_component/Tab";
+import style from "./home.module.css";
+import TabProvider from "@/app/(afterLogin)/home/_component/TabProvider";
 
 export default function Home(): JSX.Element {
-  return <></>;
+  return (
+    <main className={style.main}>
+      <TabProvider>
+        <Tab />
+        <PostForm />
+        <Post />
+      </TabProvider>
+    </main>
+  );
 }

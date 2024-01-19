@@ -37,7 +37,7 @@ export default async function AfterLayout({
       </header>
       <div className={style.rightSectionWrapper}>
         <div className={style.rightSectionInner}>
-          <main className={style.main}></main>
+          <main className={style.main}>{children}</main>
           <section className={style.rightSection}>
             <div style={{ marginBottom: 60, width: "inherit" }}>
               <form className={style.search}>
@@ -59,7 +59,6 @@ export default async function AfterLayout({
           </section>
         </div>
       </div>
-      {children}
     </div>
   );
 }
